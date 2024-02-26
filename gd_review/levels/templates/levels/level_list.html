@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Список уровней
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid p-5">
+  <div class="row" style="margin-top: -50px">
+  {% for level in page_obj %}
+        {% include "includes/level_card.html" %}
+  {% endfor %}
+      </div>
+    </div>
+  {% include "includes/paginator.html" %}
+{% endblock %}

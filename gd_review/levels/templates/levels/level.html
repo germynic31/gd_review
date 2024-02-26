@@ -1,0 +1,21 @@
+
+
+{% extends "base.html" %}
+
+{% block title %}
+<h1>{{ level.title }}</h1>
+{% endblock %}
+
+{% block content %}
+<h1>title: {{ level.title }}</h1>
+<p>description: {{ level.description }}</p>
+<p>Average difficulty: {{ level.average_difficulty }}</p>
+
+<h2>Reviews:</h2>
+<ul>
+    {% for review in level.review_set.all %}
+        <li>{{ review.user.username }} - {{ review.difficulty }} - {{ review.comment }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

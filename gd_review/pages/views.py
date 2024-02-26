@@ -9,9 +9,5 @@ def about(request):
     return render(request, 'pages/about.html')
 
 
-def levels(request):
-    return render(request, 'pages/levels.html')
-
-
 def users(request):
     return render(request, 'pages/users.html')
