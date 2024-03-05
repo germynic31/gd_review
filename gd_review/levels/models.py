@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models import Avg
 from django.utils import timezone
 
+
 User = get_user_model()
 
 DIFFICULTY_VALUES = {
@@ -34,6 +35,7 @@ class Level(models.Model):
         help_text=('Если установить дату и время '
                    'в будущем — можно делать отложенные публикации.'),
     )
+    video_url = models.URLField(null=True)
 
     def average_difficulty(self):
         reviews = self.review_set.all()
@@ -49,6 +51,13 @@ class Review(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     difficulty = models.IntegerField(choices=[(val, name) for name, val in DIFFICULTY_VALUES.items()])
     text = models.TextField(max_length=1024)
+    pub_date = models.DateTimeField(
+        blank=True,
+        default=timezone.now,
+        verbose_name='Дата и время публикации',
+        help_text=('Если установить дату и время '
+                   'в будущем — можно делать отложенные публикации.'),
+    )
 
     def __str__(self):
         return self.text[:50]

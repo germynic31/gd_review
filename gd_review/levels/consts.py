@@ -5,8 +5,8 @@ from django.db.models import Count
 DATETIME_FORMAT = '%d.%m.%Y %H:%M:%S'
 
 # views and mixins
-COUNT_POSTS_ON_PAGE = 10
-PK_URL_KWARG_FOR_LEVELS = 'level_id'
+COUNT_POSTS_ON_PAGE = 9
+PK_URL_KWARG_FOR_LEVEL = 'level_id'
 
 
 SETTINGS_RELATED = [

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load embed_video_tags %}
+{% block title %}
+  {{ level.title }}
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <h1>{{ level.title }}</h1>
+    <p>{{ level.description }}</p>
+    {% video level.video_url %}
+    <p>Сложность: {{ level.difficulty }}</p>
+    <p>Дата публикации: {{ level.pub_date }}</p>
+    <p>Средняя сложность: {{ level.average_difficulty }}</p>
+    <hr>
+    {% include "includes/reviews.html" %}
+  </div>
+{% endblock %}

@@ -1,20 +1,27 @@
+{% load embed_video_tags %}
 <style>
   .card {
     margin: 10px;
     border-radius: 5px;
   }
   .card-img-top {
-    height: 200px; /* Изменяем высоту изображения */
-    object-fit: cover; /* Растягиваем изображение на всю область */
+    height: 200px;
+    object-fit: cover;
   }
 </style>
 <div class="col-md-4">
   <div class="card">
-  <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product Image">
+    {% video level.video_url as video %}
+      {% if video in None %}
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Level Image">
+      {% else %}
+        <img src="{{ video.thumbnail }}" class="card-img-top" alt="Video Preview">
+      {% endif %}
+    {% endvideo %}
   <div class="card-body">
     <h5 class="card-title">{{ level.title }}</h5>
-    <p class="card-text">{{ level.description|truncatechars:50 }}</p>
-    <a href="#" class="btn btn-primary">Смотреть</a>
+    <p class="card-text">{{ level.description|truncatechars:30 }}</p>
+    <a href="{% url 'levels:level_detail' level.id %}" class="btn btn-primary">Подробнее</a>
   </div>
   </div>
 </div>

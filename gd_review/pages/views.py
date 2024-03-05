@@ -7,7 +7,3 @@ def index(request):
 
 def about(request):
     return render(request, 'pages/about.html')
-
-
-def users(request):
-    return render(request, 'pages/users.html')

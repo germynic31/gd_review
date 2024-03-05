@@ -1,0 +1,18 @@
+<style>
+  .card {
+    margin: 10px;
+    border-radius: 5px;
+  }
+</style>
+<div class="col-md-4">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+          <img src="https://github.com/mdo.png" alt="" width="50" height="50" class="rounded-circle me-3">
+          <h5 class="card-title me-3">{{ user.username|truncatechars:30 }}</h5>
+      </div>
+      <p class="card-text" style="margin-top: 10px">{{ user.bio|truncatechars:30 }}фывфыв</p>
+      <a href="{% url 'users:profile' user.username %}" class="btn btn-primary">Подробнее</a>
+    </div>
+  </div>
+</div>

@@ -23,9 +23,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'debug_toolbar',
+    'embed_video',
+    'django_bootstrap5',
 
+    'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
-    'levels.apps.LevelsConfig'
+    'levels.apps.LevelsConfig',
 ]
 
 MIDDLEWARE = [
@@ -92,6 +95,9 @@ TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True
 
 USE_TZ = True
+
+
+AUTH_USER_MODEL = 'users.MyUser'
 
 
 STATIC_URL = 'static/'
